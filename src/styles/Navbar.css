@@ -1,0 +1,128 @@
+/* Base (Mobile-first styles) */
+
+@media (min-width: 480px) {
+  /* Small mobile to larger phones */
+  .navbar-icon{
+    /* display: hidden; */
+    /* width: 40% */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%
+
+  }
+
+  .navbar-search-field{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+  }
+
+  .sign-in-button{
+    background-color: #18181B; /* Green */
+    border: none;
+    color: white;
+    /* padding: .5rem .4rem; */
+    width: 90%;
+    height: 90%;
+    border-radius: .4rem;
+    
+    /* text-align: center; */
+    /* text-decoration: none; */
+    /* display: inline-block; */
+    font-size: .8rem;
+  }
+
+  .search-icon-and-bar{
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .search-icon{
+    width: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .luicde-search-icon{
+    height: 45%;
+    color: gray;
+  }
+
+  .search-field{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-input {
+    width: 100%;
+    border: none;          
+    outline: none;
+    border-radius: 5%;   
+  }
+
+  .navbar-signIn-signOut{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .messages-square-icon{
+    height: 100%;
+    width: 2.4rem;
+    color: #5BBCFF;
+}
+}
+
+@media (min-width: 768px) {
+  /* Tablets and small desktops */
+}
+
+@media (min-width: 1024px) {
+  /* Laptops */
+}
+
+@media (min-width: 1280px) {
+  /* Desktop monitors */
+}
+
+@media (min-width: 1600px) {
+  /* Large desktops or ultrawide */
+}
+
+.navbar-styling{
+    /* position: fixed; */
+    background-color: #F5F5F5;
+    /* margin-bottom: 102rem; */
+    min-width: 100%;
+    height: 3rem;
+    display: flex;
+
+    /* background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);     */
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row; */
+ }
+
+.nav-content{
+  /* width: 100%;
+  height: 100%; */
+  margin : .3rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
