@@ -14,6 +14,7 @@ const NavBar = () => {
     const [dropDown, SetDropDown] = useState<boolean>(false)
 
 
+
     return (
         <div className="navbar-styling">
             <div className="nav-content">
@@ -53,9 +54,16 @@ const NavBar = () => {
                                     <>
                                     </> :
                                     <div className="drop-down">
-                                        <div>Create A Chat</div>
+                                        <div className="user_name_field">  
+                                            <p >dummy</p>
+                                            <p>dummy@gmail.com</p>
+                                        </div>
                                         <hr/>
-                                        <div>Notifications</div>
+                                        <div>Create A Chat</div>
+                                       <hr/>
+                                        <div>Notifications
+                                            <span className="num-of-notis">9+</span>
+                                        </div>
                                         <hr/>
                                         <div>Settings</div>
                                         <hr/>
