@@ -11,6 +11,8 @@ const NavBar = () => {
 
     const [dropUserOption, SetdropUserOption] = useState<boolean>(false)
     const [signedIn, SetSignedIn] = useState<boolean>(true)
+    const [dropDown, SetDropDown] = useState<boolean>(false)
+
 
     return (
         <div className="navbar-styling">
@@ -38,15 +40,39 @@ const NavBar = () => {
                 
                 <div className="navbar-signIn-signOut">
                     {
-                        signedIn == true ?
+                        signedIn == false ?
                         <button className="sign-in-button">Sign-In</button>
                         :
-                        <div> danel </div>
+                        <div className="signed-in-dropdown" onClick={() => SetDropDown(!dropDown)}> 
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/geeksforgeeks-25.png"
+                                alt="Sample Image" className="profile-img"></img>
+                                {/* <div className="drop-down">  Edit Profile</div>
+                                <div className="drop-down"> Notifications</div> */}
+                                {
+                                    dropDown == false ?
+                                    <>
+                                    </> :
+                                    <div className="drop-down">
+                                        <div>Create A Chat</div>
+                                        <hr/>
+                                        <div>Notifications</div>
+                                        <hr/>
+                                        <div>Settings</div>
+                                        <hr/>
+                                        <div>Log Out</div> 
+                                    </div>
+                                }
+
+                        
+                        </div>
                     }
                 </div>
             </div>
- 
-            {/* <div className="navbar-elements">
+
+
+
+
+       {/* <div className="navbar-elements">
                 <div className="nav-logo">
                     <MessagesSquare className="nav-messages-square" />
                     <p className="nav-titile">
@@ -87,7 +113,11 @@ const NavBar = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
+ */}
+
+
+
         </div>
      );
 }
