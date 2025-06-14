@@ -22,5 +22,6 @@ body{
 .main-container{
     width: 100vw;
     flex: 1;
-    background-color: green;
+    background-color: white;
+    display: flex;
 }
