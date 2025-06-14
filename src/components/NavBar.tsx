@@ -6,12 +6,14 @@ import "../styles/Navbar.css"
 import { MessagesSquare, Search } from 'lucide-react';
 // import SearchBar from './SearchBar'
 import {Button} from 'react-native';
- 
+import Link from "next/link"
+
 const NavBar = () => {
 
     const [dropUserOption, SetdropUserOption] = useState<boolean>(false)
     const [signedIn, SetSignedIn] = useState<boolean>(true)
     const [dropDown, SetDropDown] = useState<boolean>(false)
+
 
 
     return (
@@ -40,8 +42,8 @@ const NavBar = () => {
                 
                 <div className="navbar-signIn-signOut">
                     {
-                        signedIn == false ?
-                        <button className="sign-in-button">Sign-In</button>
+                        signedIn == true ?
+                        <Link  href='/sign-in'  className="sign-in-button">Sign-In</Link>
                         :
                         <div className="signed-in-dropdown" onClick={() => SetDropDown(!dropDown)}> 
                                 <img src="https://media.geeksforgeeks.org/wp-content/uploads/geeksforgeeks-25.png"
@@ -53,9 +55,16 @@ const NavBar = () => {
                                     <>
                                     </> :
                                     <div className="drop-down">
-                                        <div>Create A Chat</div>
+                                        <div className="user_name_field">  
+                                            <p >dummy</p>
+                                            <p>dummy@gmail.com</p>
+                                        </div>
                                         <hr/>
-                                        <div>Notifications</div>
+                                        <div>Create A Chat</div>
+                                       <hr/>
+                                        <div>Notifications
+                                            <span className="num-of-notis">9+</span>
+                                        </div>
                                         <hr/>
                                         <div>Settings</div>
                                         <hr/>
