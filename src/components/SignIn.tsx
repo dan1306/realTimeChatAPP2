@@ -17,7 +17,7 @@ const SignIn = () => {
             </div>
             <div className="continuation-message">
                 <p className="continuation-message-p">
-                    By continuing, you are setting up a Breadit account and agree to our User Agreement and Privacy Policy.
+                    By continuing, you are setting up a ChatMeUp account and agree to our User Agreement and Privacy Policy.
                 </p>
             </div>
             <div className="google-btn-parent-div">
