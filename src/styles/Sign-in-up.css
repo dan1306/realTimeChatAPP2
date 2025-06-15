@@ -25,6 +25,7 @@
     height: 2.5rem;
     background-color: white;
     border-radius: .3rem;
+    position: absolute;
 }
 
 .link-back-icon{
@@ -41,7 +42,7 @@
 }
 
 .buffer-div{
-    height: 5rem;
+    height: 7rem;
     /* width: 100%; */
 }
 

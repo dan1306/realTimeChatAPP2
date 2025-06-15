@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Icons } from "./Icons";
 import Link from "next/link";
 import UserAuthForm from "./UserAuthForm";
-import "../styles/sign-in-component.css"
+import "../styles/sign-in-up-component.css"
 import { MessagesSquare } from "lucide-react";
 
  

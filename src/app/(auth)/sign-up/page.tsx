@@ -1,6 +1,6 @@
 
 import { FC } from "react";
-import "../../../styles/Sign-In.css"
+import "../../../styles/Sign-in-up.css"
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import SignUp from "@/components/SignUp";
