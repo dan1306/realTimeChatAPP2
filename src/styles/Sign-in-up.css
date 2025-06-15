@@ -1,0 +1,56 @@
+.sign-in-parent-div{
+    flex: 1;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100vh;
+    display: flex; 
+}
+
+.sign-in-div{
+    /* background-color: red; */
+    width: 60%;
+    height: 70%;
+    top: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.link-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.5rem;
+    height: 2.5rem;
+    background-color: white;
+    border-radius: .3rem;
+    position: absolute;
+}
+
+.link-back-icon{
+    color: #27272A;
+    size: 1rem;
+}
+
+.link-back:hover{
+    background-color: #F4F4F5;
+}
+
+.link-back:active {
+  border: .01rem solid #94A3B8;
+}
+
+.buffer-div{
+    height: 7rem;
+    /* width: 100%; */
+}
+
+.sign-in-component{
+    flex: 1;
+    display: flex;
+}
+
+.google-btn-parent-div{
+    width: 100%;
+}

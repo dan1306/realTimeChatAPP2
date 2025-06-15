@@ -1,0 +1,28 @@
+
+
+.google-btn{
+    width: 95%;
+    height: 100%;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: white;
+    background-color: #18181B;
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+  }
+
+.google-btn:hover{
+  background-color: #27272A;
+}
+
+.google-icon {
+  height: 1rem;   /* ~20px */
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+
+.google-txt{
+  position: relative;
+  bottom: .2rem
+}
