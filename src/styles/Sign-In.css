@@ -40,7 +40,16 @@
   border: .01rem solid #94A3B8;
 }
 
+.buffer-div{
+    height: 5rem;
+    /* width: 100%; */
+}
+
 .sign-in-component{
-    background-color: red;
     flex: 1;
+    display: flex;
+}
+
+.google-btn-parent-div{
+    width: 100%;
 }

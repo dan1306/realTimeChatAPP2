@@ -3,6 +3,7 @@ import { FC } from "react";
 import "../../../styles/Sign-In.css"
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
+import SignIn from "@/components/SignIn";
 
 
 const Page = () => {
@@ -13,7 +14,10 @@ const Page = () => {
                 <Link href='/' className="link-back">
                         <ChevronLeft className="link-back-icon" size={16} />
                 </Link>
-                <div className="sign-in-component"> sign in </div>
+                <div className="buffer-div"> </div>
+                <div className="sign-in-component">
+                    <SignIn />
+                </div>
 
             </div>
             

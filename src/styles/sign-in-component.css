@@ -1,0 +1,67 @@
+.sign-in-component-parent-div{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+}
+
+.app-icon-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+}
+
+  .messages-square-icon{
+    height: 100%;
+    width: 2.4rem;
+    color: #5BBCFF;
+}
+
+.welcome-message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size:x-large;
+    height: 2rem ;
+}
+
+.continuation-message{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.continuation-message-p{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: medium;
+    width: 75%;
+}
+
+.google-btn-parent-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.8rem;
+}
+
+.sign-up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: small;
+}
+
+.sign-up > p{
+    color: #3F3F46;
+}
+
+.sign-up-link{
+    margin-left: .25rem;
+    color: #3F3F46 ;
+}
