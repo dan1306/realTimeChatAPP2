@@ -2,7 +2,7 @@
 
 // import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-// import {signIn} from 'next-auth/react'
+import {signIn} from 'next-auth/react'
 import { Icons } from "./Icons";
 // import { useToast } from "@/hooks/use-toast";
 import "../styles/UserAuthForm.css"
@@ -12,41 +12,40 @@ const UserAuthForm = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
     // const { toast } = useToast()
     
-    // useEffect(() => {
-    //             console.log(isLoading)
+    useEffect(() => {
+                console.log(isLoading)
 
-    //     if (isLoading == true) {
-    //         loginWithGoogle_2()
-    //     }
-    // }, [isLoading])  // pass `value` as a dependency
+        if (isLoading) {
+            loginWithGoogle_2()
+        }
+    }, [isLoading])  // pass `value` as a dependency
     
 
     const loginWithGoogle_1 = () => {
         setIsLoading(true) 
         // console.log(isLoading)
-
-
-        
     }
 
-    // const loginWithGoogle_2 = async () => {
-    //     try {
-    //         // throw new Error()
-    //         await signIn('google')
-    //     } catch (error) {
-    //         // toast notification
-    //         toast({
-    //             title: "There was a problem.",
-    //             description: "There was an error logging in with google.",
-    //             variant: "destructive"
-    //         })
+    const loginWithGoogle_2 = async () => {
+        try {
+            // throw new Error()
+            await signIn('google')
+        } catch (error) {
+            // toast notification
+            // toast({
+            //     title: "There was a problem.",
+            //     description: "There was an error logging in with google.",
+            //     variant: "destructive"
+            // })
 
-    //     } finally {
-    //         setIsLoading(false)
-    //         console.log(isLoading)
+            console.log("There was an error logging in with google.")
 
-    //     }
-    // }
+        } finally {
+            setIsLoading(false)
+            console.log(isLoading)
+
+        }
+    }
 
     return (
         <>
@@ -56,7 +55,7 @@ const UserAuthForm = () => {
                 // size='sm'
                 className="google-btn"
             >
-                {isLoading ? null : <Icons.google  className="google-icon"/>}
+                {isLoading ? <span className="loader"></span> : <Icons.google  className="google-icon"/>}
                 <span className="google-txt">Google</span>
             </button>
         </>
