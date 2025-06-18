@@ -1,5 +1,3 @@
-"use client"
-
 // import { useState } from "react";
 import {useState} from "react"
 import "../styles/Navbar.css"
@@ -7,12 +5,19 @@ import { MessagesSquare, Search } from 'lucide-react';
 // import SearchBar from './SearchBar'
 import {Button} from 'react-native';
 import Link from "next/link"
+import { getAuthSession } from "@/app/lib/auth";
+import UserNav from "./UserNav";
 
-const NavBar = () => {
+const NavBar = async () => {
 
-    const [dropUserOption, SetdropUserOption] = useState<boolean>(false)
-    const [signedIn, SetSignedIn] = useState<boolean>(true)
-    const [dropDown, SetDropDown] = useState<boolean>(false)
+
+
+    const session = await getAuthSession()
+
+
+    // const [dropUserOption, SetdropUserOption] = useState<boolean>(false)
+    // const [signedIn, SetSignedIn] = useState<boolean>(true)
+    // const [dropDown, SetDropDown] = useState<boolean>(false)
 
 
 
@@ -42,38 +47,10 @@ const NavBar = () => {
                 
                 <div className="navbar-signIn-signOut">
                     {
-                        signedIn == true ?
+                    session?.user ?
+                        <UserNav user = {session.user} />
+                        : 
                         <Link  href='/sign-in'  className="sign-in-button">Sign-In</Link>
-                        :
-                        <div className="signed-in-dropdown" onClick={() => SetDropDown(!dropDown)}> 
-                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/geeksforgeeks-25.png"
-                                alt="Sample Image" className="profile-img"></img>
-                                {/* <div className="drop-down">  Edit Profile</div>
-                                <div className="drop-down"> Notifications</div> */}
-                                {
-                                    dropDown == false ?
-                                    <>
-                                    </> :
-                                    <div className="drop-down">
-                                        <div className="user_name_field">  
-                                            <p >dummy</p>
-                                            <p>dummy@gmail.com</p>
-                                        </div>
-                                        <hr/>
-                                        <div>Create A Chat</div>
-                                       <hr/>
-                                        <div>Notifications
-                                            <span className="num-of-notis">9+</span>
-                                        </div>
-                                        <hr/>
-                                        <div>Settings</div>
-                                        <hr/>
-                                        <div>Log Out</div> 
-                                    </div>
-                                }
-
-                        
-                        </div>
                     }
                 </div>
             </div>
