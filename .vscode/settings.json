@@ -1,0 +1,20 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                },
+                "connectionTimeoutMillis": 30
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "realTimeChatApp",
+            "database": "realTimeChatApp",
+            "username": "postgres",
+            "password": "one"
+        }
+    ]
+}
