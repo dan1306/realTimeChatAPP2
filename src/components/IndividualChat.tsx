@@ -22,7 +22,7 @@ const IndividualChat = () => {
     const sendMessage = () => {
         const tempMessage: string = message.trim()
         if (tempMessage.length !== 0) socket.emit("send_message", { message });
-        setMessageEmpty(true)
+        setMessageEmpty(true )
     }
 
     useEffect(() => {
