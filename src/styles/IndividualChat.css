@@ -1,0 +1,82 @@
+.chat-user-selected{
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: .01rem solid black;
+}
+
+.chat-field{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-display{
+    height: 80%;
+    border-bottom: .01rem solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-display > div {
+    width: 50%;
+}
+
+.chat-display > div:nth-child(2) {
+    text-align: right;
+}
+
+
+.chat-interaction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+}
+
+.chat-interaction-image-field{
+    border: 1px solid black;
+    width: 70%;
+    height: 2rem;
+
+}
+
+.user-chat-img{
+    width: 2.5rem;
+    height: 2.5rem;
+    /* object-fit: cover; */
+    object-fit: contain;
+    border-radius: 50%;
+    position: relative;
+    /* display: block; */
+    border: .1rem solid black;
+  }
+
+.chat-interacting-message-parent-field{
+    border: 1px solid red;
+        width: 70%;
+    height: 2.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.message-input{
+    width: 84%;
+}
+
+.send-message{
+    width: 8%;
+        border: 1px solid yellow;
+
+}
+
+.add-img-field{
+    width: 8%;
+    border: 1px solid red;
+}
+.user-chat-name{
+    /* display: block; */
+}
