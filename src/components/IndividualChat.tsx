@@ -4,6 +4,9 @@
 import { useEffect, useState } from "react";
 import "../styles/IndividualChat.css"
 import { socket } from "../socket";
+// import { Send } from 'lucide-react';
+import { BsSendFill } from 'react-icons/bs';
+import { MdPhoto } from "react-icons/md";
 
 let UserId: string | undefined
 
@@ -13,22 +16,53 @@ socket.on('connect', () => {
     console.log("UserId: ", UserId)
 })
 
+interface MyMessage {
+  messge: String;
+  fromMe: boolean;
+  id: number
+}
 
 
 
 const IndividualChat = () => {
     const [message, setMessage] = useState<string>('')
     const [messageEmpty, setMessageEmpty] = useState<boolean>(false)
+    const [myMessage, setMessages] = useState<MyMessage[]>([]); 
+    const [mesageId, setMessageId] = useState<number>(0)
     const sendMessage = () => {
         const tempMessage: string = message.trim()
         if (tempMessage.length !== 0) socket.emit("send_message", { message });
-        setMessageEmpty(true )
+        setMessageEmpty(true)
+        setMessageId(prevId => prevId + 1);
+        const newMessage: MyMessage = {
+            id: mesageId,
+            fromMe: true,
+            
+            messge: tempMessage
+
+        };
+
+        // Use the spread operator to create a new array with the existing messages and the new one
+
+        setMessages((prevMessages) => [...prevMessages, newMessage]);
+
+        
     }
 
     useEffect(() => {
         // console.log("h1")
-        socket.on("recieve_message", (data: {message: string, id: string }) => {
-        console.log(data.id , data.message)
+        setMessageId(prevId => prevId + 1);
+
+        socket.on("recieve_message", (data: {message: string}) => {
+        const newMessage: MyMessage = {
+            id: mesageId,
+            fromMe: false,
+
+            messge: data.message
+        };
+
+        // Use the spread operator to create a new array with the existing messages and the new one
+        setMessages((prevMessages) => [...prevMessages, newMessage]);
         } )
     }, [socket]);
 
@@ -42,17 +76,25 @@ const IndividualChat = () => {
                   </div>
             </div>
             <div className="chat-field">
-                <div className="chat-display">
-                    <div>
-                        asda
-                    </div>
-                    <div>
-                        aaff
-                    </div>
+                <div className="chat-display-parent">
+                    <div className="chat-display">
+
+                            {myMessage.map(msg => (
+                                msg.fromMe ? 
+                                    <p className="from-me" key={msg.id}>
+                                        {msg.messge}
+                                    </p>
+                                    :
+                                    <p className="from-them" key={msg.id}>
+                                        {msg.messge}
+                                    </p>
+                            ))}
+                        </div>
                 </div>
+    
                 <div className="chat-interaction">
                     <div className="chat-interaction-image-field">
-                        div 1
+                        image here
                     </div>
                     <div className="chat-interacting-message-parent-field">
                         <input 
@@ -66,8 +108,14 @@ const IndividualChat = () => {
                             value={message}
 
                         />
-                        <div className="add-img-field"></div>
-                        <div className="send-message" onClick={()=> sendMessage()}></div>
+                        <div className="add-img-field">
+                            < MdPhoto className="send-photo-icon" size={"1.3rem"} /> 
+                        </div>
+                        <div className="send-message" onClick={()=> sendMessage()}>
+                            <BsSendFill className="send-message-icon"  size={'1.3rem'}/>
+                        </div>
+
+                        
 
                     </div>
                 </div>
