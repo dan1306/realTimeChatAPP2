@@ -26,6 +26,7 @@ model User {
   image       String?
   accounts    Account[]
   sessions    Session[]
+  conversations Conversation[]
 }
 
 model Session {
@@ -53,4 +54,25 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+}
+
+
+model Conversation {
+  id String  @id @default(cuid())
+  conversationOwnerId String
+  conversationwithId String
+  messages Message[]
+  user User @relation(fields: [conversationOwnerId], references: [id], onDelete: Cascade)
+
+
+}
+
+
+model Message {
+  id String  @id @default(cuid())
+  conversationId String
+  senderId  String
+  recieverId String
+  message_string String
+  conversation    Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 }

@@ -13,20 +13,6 @@
     flex-direction: column;
 }
 
-.chat-display{
-    height: 80%;
-    border-bottom: .01rem solid black;
-    display: flex;
-    flex-direction: row;
-}
-
-.chat-display > div {
-    width: 50%;
-}
-
-.chat-display > div:nth-child(2) {
-    text-align: right;
-}
 
 
 .chat-interaction{
@@ -35,12 +21,19 @@
     align-items: center;
     flex-direction: column;
     flex: 1;
+    background: linear-gradient(135deg, #E0E7FF, #F3F4F6);
 }
 
 .chat-interaction-image-field{
-    border: 1px solid black;
+    border: 1px solid #D1D5DB;
     width: 70%;
     height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: medium;
+    background-color: white;
 
 }
 
@@ -56,7 +49,7 @@
   }
 
 .chat-interacting-message-parent-field{
-    border: 1px solid red;
+    border: 1px solid #D1D5DB;
         width: 70%;
     height: 2.5rem;
     display: flex;
@@ -69,14 +62,170 @@
 
 .send-message{
     width: 8%;
-        border: 1px solid yellow;
+    border: 1px solid #D1D5DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    background-color: #e1e4fb;
+    cursor: pointer;
+    transition: all .4s;
 }
+
+.send-message-icon {
+        color: #6875ce;
+        /* size: 22rem; */
+}
+
+/* .send-message :hover {
+    background-color: #54a5e3;
+    transform: translateY(-1px);
+} */
 
 .add-img-field{
     width: 8%;
-    border: 1px solid red;
+    border: 1px solid #D1D5DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3F4F6;
+    transition: all .4s;
+    cursor: pointer;
+
 }
 .user-chat-name{
     /* display: block; */
+}
+
+.send-photo-icon {
+    color: #6B7280;
+}
+
+.send-message:hover {
+    background-color: #54a5e3;
+    transform: translateY(-1px);
+}
+
+.send-message:hover .send-message-icon {
+    color: white;
+}
+
+
+.add-img-field:hover {
+    background-color: #E5E7EB; /* slightly darker gray */
+        transform: translateY(-1px);
+
+}
+
+.add-img-field:hover .send-photo-icon {
+    color: #374151; /* deeper, more visible gray */
+}
+
+
+
+/* Chat field display  */
+
+.chat-display-parent{
+  height: 20rem;
+  max-height: 80vh;
+
+}
+
+.chat-display{
+    height: 100%;
+    max-height: 100%;
+  background-color: #fff;
+    border-bottom: .01rem solid black;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 1.5rem;
+    font-family: "SanFrancisco", -apple-system, BlinkMacSystemFont, sans-serif;
+
+
+}
+
+
+/* .imessage {
+  background-color: #fff;
+  border: 1px solid #e5e5ea;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "SanFrancisco", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.25rem;
+  margin: 0 auto 1rem;
+  max-width: 600px;
+  padding: 0.5rem 1.5rem;
+} */
+
+.chat-display p {
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  max-width: 75%;
+  padding: 0.5rem 0.875rem;
+  position: relative;
+  word-wrap: break-word;
+  margin: 0.5rem 0;
+  width: fit-content;
+}
+
+/* FROM ME (right side) */
+p.from-me {
+  align-self: flex-end;
+  background-color: #248bf5;
+  color: #fff;
+}
+
+p.from-me::before {
+  content: "";
+  position: absolute;
+  bottom: -0.1rem;
+  right: -0.35rem;
+  border-right: 1rem solid #248bf5;
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  height: 1rem;
+  transform: translate(-.29rem, -0.1rem);
+}
+
+p.from-me::after {
+  content: "";
+  position: absolute;
+  bottom: -0.1rem;
+  right: -40px;
+  width: 10px;
+  height: 1rem;
+  background-color: #fff;
+  border-bottom-left-radius: 0.5rem;
+  transform: translate(-30px, -2px);
+}
+
+/* FROM THEM (left side) */
+p.from-them {
+  align-self: flex-start;
+  background-color: #e5e5ea;
+  color: #000;
+}
+
+p.from-them::before {
+  content: "";
+  position: absolute;
+  bottom: -0.1rem;
+  left: -0.35rem;
+  border-left: 1rem solid #e5e5ea;
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  height: 1rem;
+  transform: translate(.29rem, -0.1rem);
+}
+
+p.from-them::after {
+  content: "";
+  position: absolute;
+  bottom: -0.1rem;
+  left: 20px;
+  width: 10px;
+  height: 1rem;
+  background-color: #fff;
+  border-bottom-right-radius: 0.5rem;
+  transform: translate(-30px, -2px);
 }

@@ -22,8 +22,8 @@ app.prepare().then(() => {
      
       data.id = socket.id
       console.log("data: ", data )
-      // socket.broadcast.emit('recieve_message', data)
-      io.emit('recieve_message', data)
+      socket.broadcast.emit('recieve_message', data)
+      // io.emit('recieve_message', data)
 
     })
   });
