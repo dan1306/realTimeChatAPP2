@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { FC, useState } from "react"
 import "../styles/ChatOptions.css"
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -13,7 +13,10 @@ interface User {
   image?: string; // optional
 }
 
-const ChatList = () => {
+interface ChatListProp {
+    userSelected: (user: User| null) => void
+}
+const ChatList: FC<ChatListProp> = ({userSelected}) => {
     // const  [chatSelected, setChateSelected] = useState<boolean>(false)
     // const [groupChatSelected, setGr]
 
@@ -35,7 +38,7 @@ const ChatList = () => {
             {
                 data ? 
                 data.map((user: User) =>(
-                    <UserChatCard {...user}/>
+                    <UserChatCard key={user.id} {...user} userSelected={userSelected}/>
                 )) : <></>
             }
         </div>
