@@ -1,0 +1,18 @@
+.userChatCard{
+    display: flex;
+    height: 4.5rem;
+    background-color: red;
+    border-bottom: 1px solid #e0e0e0; 
+    background-color: #f9f9f9;   
+    /* padding: .6rem */
+}
+
+.userChatCardchildDiv{
+    border: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    flex: 1;
+    margin: .6rem
+}

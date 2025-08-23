@@ -2,7 +2,7 @@
     background-color: rgba(203, 205, 207, 0.3); /* 30% opacity */    height: 100%;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    /* z-index: 50; */
     position: absolute;
     display: flex;
     justify-content: center;

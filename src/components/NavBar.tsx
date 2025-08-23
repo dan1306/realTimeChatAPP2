@@ -1,11 +1,11 @@
 // import { useState } from "react";
-import {useState} from "react"
+import { useState } from "react"
 import "../styles/Navbar.css"
 import { MessagesSquare, Search } from 'lucide-react';
 // import SearchBar from './SearchBar'
-import {Button} from 'react-native';
+import { Button } from 'react-native';
 import Link from "next/link"
-import { getAuthSession } from "@/app/lib/auth";
+import { getAuthSession } from "@/lib/auth";
 import UserNav from "./UserNav";
 
 const NavBar = async () => {
@@ -13,6 +13,8 @@ const NavBar = async () => {
 
 
     const session = await getAuthSession()
+
+    console.log(session)
 
 
     // const [dropUserOption, SetdropUserOption] = useState<boolean>(false)
@@ -35,7 +37,7 @@ const NavBar = async () => {
                         <div className="search-icon">
                             <Search className="luicde-search-icon" />
                         </div>
-                        <div className="search-field"> 
+                        <div className="search-field">
                             <input
                                 className="search-input"
                                 placeholder="Search Chats..."
@@ -44,13 +46,13 @@ const NavBar = async () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="navbar-signIn-signOut">
                     {
-                    session?.user ?
-                        <UserNav user = {session.user} />
-                        : 
-                        <Link  href='/sign-in'  className="sign-in-button">Sign-In</Link>
+                        session?.user ?
+                            <UserNav user={session.user} />
+                            :
+                            <Link href='/sign-in' className="sign-in-button">Sign-In</Link>
                     }
                 </div>
             </div>
@@ -58,7 +60,7 @@ const NavBar = async () => {
 
 
 
-       {/* <div className="navbar-elements">
+            {/* <div className="navbar-elements">
                 <div className="nav-logo">
                     <MessagesSquare className="nav-messages-square" />
                     <p className="nav-titile">
@@ -105,7 +107,7 @@ const NavBar = async () => {
 
 
         </div>
-     );
+    );
 }
- 
+
 export default NavBar;

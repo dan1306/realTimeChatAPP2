@@ -75,4 +75,5 @@ model Message {
   recieverId String
   message_string String
   conversation    Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
 }
