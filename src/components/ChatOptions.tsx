@@ -17,9 +17,9 @@ const ChatOptions = () => {
     return(
         <div className="chat-options-main-div">
             <div className="individualChats-groups-whoIsOnline">
-                <div onClick = {() => handleChatTypeClick('chats')}>Chats</div>
+                <div onClick = {() => handleChatTypeClick('chats')}>Messages</div>
                 {/* <div>Groups</div> */}
-                <div onClick ={() => handleChatTypeClick('online')}>Online</div>
+                {/* <div onClick ={() => handleChatTypeClick('online')}>Online</div> */}
             </div>
             {       
                 chatSelected === "chats" ? (<ChatList />) : <></>

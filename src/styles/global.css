@@ -23,7 +23,7 @@ body{
     min-height: 100vh;
     position: relative;
     /* flex: 1; */
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 
 .main-container{

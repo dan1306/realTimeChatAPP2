@@ -19,7 +19,13 @@ const UserChatCard: FC<CardProps> = ({image, email, name, id}) => {
     return(
         <div className="userChatCard">
             <div className="userChatCardchildDiv">
-                asas
+                <div className="userCardImage">
+                    <img className="userCardImageImgField" src={image}></img>                    
+                </div>
+                <div className="userCardNameEmail">
+                    <div>{name}</div>
+                    <div>{email}</div>
+                </div>
             </div>
         </div>
     )
