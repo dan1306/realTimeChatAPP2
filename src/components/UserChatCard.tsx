@@ -7,17 +7,24 @@ interface CardProps {
     image?: string,
     email?: string,
     id: string,
-    name?: string
-
+    name?: string,
+    userSelected: (user: User | null)=> void
 }
 
-const UserChatCard: FC<CardProps> = ({image, email, name, id}) => {
+interface User {
+  id: string;
+  name?: string;
+  email?: string;
+  image?: string; // optional
+}
+
+const UserChatCard: FC<CardProps> = ({image, email, name, id, userSelected}) => {
     // const  [chatSelected, setChateSelected] = useState<boolean>(false)
     // const [groupChatSelected, setGr]
 
 
     return(
-        <div className="userChatCard">
+        <div className="userChatCard" onClick={()=> userSelected({image, email, id, name})}>
             <div className="userChatCardchildDiv">
                 <div className="userCardImage">
                     <img className="userCardImageImgField" src={image}></img>                    

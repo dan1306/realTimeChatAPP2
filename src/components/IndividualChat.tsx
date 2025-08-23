@@ -69,12 +69,12 @@ const IndividualChat = () => {
 
     return (
         <>
-            <div className="chat-user-selected">
-                  <img  className="user-chat-img"></img>
-                  <div className="user-chat-name">
-                        placehofer
-                  </div>
-            </div>
+            {/* <div className="chat-user-selected"> */}
+                  {/* <img  className="user-chat-img"></img> */}
+                  {/* <div className="user-chat-name"> */}
+                        {/* placehofer */}
+                  {/* </div> */}
+            {/* </div> */}
             <div className="chat-field">
                 <div className="chat-display-parent">
                     <div className="chat-display">
