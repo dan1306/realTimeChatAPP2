@@ -1,0 +1,38 @@
+.chat-options-main-div{
+    flex: 1;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+}
+
+.individualChats-groups-whoIsOnline{
+    height: 4rem;
+    /* background-color: yellow; */
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #ccc;
+}
+
+.individualChats-groups-whoIsOnline > div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #ccc; /* thin grey line */
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer
+}
+
+/* Remove the border on the last one */
+.individualChats-groups-whoIsOnline > div:last-child {
+  border-right: none;
+}
+
+.selected-chat-option {
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  overflow-y: scroll;
+}

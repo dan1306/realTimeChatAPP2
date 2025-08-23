@@ -13,6 +13,7 @@
     "@prisma/client": "^6.10.0",
     "@tanstack/react-query": "^5.80.7",
     "auth": "^1.2.3",
+    "axios": "^1.11.0",
     "express": "^5.1.0",
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
