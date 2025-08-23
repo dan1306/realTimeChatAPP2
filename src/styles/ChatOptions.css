@@ -33,6 +33,6 @@
   flex:1;
   display: flex;
   flex-direction: column;
-  background-color: yellow;
+  /* background-color: yellow; */
   overflow-y: scroll;
 }
