@@ -8,7 +8,7 @@ import { MessagesSquare, Search } from 'lucide-react';
 // import SearchBar from './SearchBar'
 import { Button } from 'react-native';
 import Link from "next/link"
-import { getAuthSession } from "@/lib/auth";
+// import { getAuthSession } from "@/lib/auth";
 import { signOut } from "next-auth/react";
 
 

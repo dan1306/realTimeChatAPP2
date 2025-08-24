@@ -3,18 +3,18 @@
 
 import { useEffect, useState } from "react";
 import "../styles/IndividualChat.css"
-import { socket } from "../socket";
+import {socket} from "../components/ChatOptions"
 // import { Send } from 'lucide-react';
 import { BsSendFill } from 'react-icons/bs';
 import { MdPhoto } from "react-icons/md";
 
-let UserId: string | undefined
+// let UserId: string | undefined
 
 
-socket.on('connect', () => {
-    UserId = socket.id
-    console.log("UserId: ", UserId)
-})
+// socket.on('connect', () => {
+    // UserId = socket.id
+    // console.log("UserId: ", UserId)
+// })
 
 interface MyMessage {
   messge: String;
