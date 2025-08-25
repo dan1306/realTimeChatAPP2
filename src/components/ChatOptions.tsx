@@ -40,24 +40,8 @@ const ChatOptions: FC<chatOptionProp> = ({email} ) => {
     // const [recipientName, setRecipientName] = useState<string>("");
     // const [groupChatSelected, setGr]
     // const userSession: User = user;
-    const conncectedUsers = new Map<string, string>();
-/*
-    useEffect(()=>{
-        if(email && socketId){
-            // conncectedUsers.set(email, socketId);
-            socket.emit("register_user", 
-                {
-                    "user_email": email,
-                    "socket_id": socketId
-                }
-            );
-            console.log("synced: ",{
-                    "user_email": email,
-                    "socket_id": socketId
-                })
-        }
-    }, [])
-*/
+
+    
 
     useEffect(()=>{
         if(email && socketId){
@@ -68,51 +52,27 @@ const ChatOptions: FC<chatOptionProp> = ({email} ) => {
                     "socket_id": socketId
                 }
             );
-            console.log("synced: ",{
-                    "user_email": email,
-                    "socket_id": socketId
-                })
         }
     }, [email, socketId])
 
 
     useEffect(()=>{
-        socket.on("hey_register_new_user", (data) => {
-                // console.log("recvdata: ", data)
-                console.log("new connection: ", data);
-                socket.emit("registering_foreign_user", data);
-            } 
-        )
-
-        socket.on("registered_you_so_register_me", (data)=>{
-            socket.emit("fine_you_will_be_registered", data);
-            
+        socket.on("new_conn", (data)=>{
+            console.log("new connection", data);
         })
 
-        socket.on('done', (data)=>{
-            console.log("tasks done: ", data);
+        socket.on("updated_database", (data)=>{
+            console.log("update: ", data);
         })
-        
-        
-        socket.on('placed', (data)=>{
-            console.log("placed: ", data);
-        })
-
-        socket.on("a_user_disconnected", (data)=>{
-            console.log("a user disconnected: ", data)
-            socket.emit("remove_user_connection", data)            
-        })
-
-        socket.on('removed_a_user_connection', (data)=>{
-            console.log("removeed user connection", data);
-        })
-/*
-        socket.on("good", (data)=>{
-            console.log("good: ", data);
-        })
-*/
-        // console.log("conncectedUsers: ", conncectedUsers);
     }, [socket])
+
+    useEffect(()=>{
+        if(selectedUser?.email){
+            socket.emit("user_convo_clicked", (selectedUser.email));
+        } else{
+            socket.emit('user_convo_Clicked', (null))
+        }
+    }, [selectedUser])
 
     const handleChatTypeClick = (val: string) => {
         setChateSelected(val);
@@ -154,9 +114,9 @@ const ChatOptions: FC<chatOptionProp> = ({email} ) => {
             {/* <div onClick ={() => handleChatTypeClick('online')}>Online</div> */}
             </div>
             { 
-                selectedUser?.image && selectedUser?.name ?
+                selectedUser?.image && selectedUser?.name && selectedUser?.email ?
                 <div className="chat-container">
-                    <IndividualChat />
+                    <IndividualChat recipient={selectedUser?.email} owner={email}/>
                 </div>
                 :
                 <ChatList userSelected={handleSelectedUser} />
