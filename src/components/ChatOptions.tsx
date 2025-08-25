@@ -1,9 +1,24 @@
 "use client"
-import { useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import "../styles/ChatOptions.css"
 import ChatList from "./ChatList"
 import IndividualChat from "./IndividualChat"
 import CloseModalUserChat from "./CloseModalUserChat"
+import { io } from "socket.io-client"
+
+export const socket = io("http://localhost:3000");
+
+
+let socketId: string | undefined
+
+
+socket.on('connect', () => {
+    socketId = socket.id
+    console.log("UserId: ", socketId)
+})
+
+
+
 
 interface User {
     image?: string,
@@ -11,7 +26,11 @@ interface User {
     id?: string,
     name?: string 
 }
-const ChatOptions = () => {
+
+interface chatOptionProp {
+    email: string
+}
+const ChatOptions: FC<chatOptionProp> = ({email} ) => {
     const  [chatSelected, setChateSelected] = useState<string>("chats");
     // const [userSelectedConvo, setUserSelectedConvo] = useState<boolean>(false);
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
@@ -20,6 +39,40 @@ const ChatOptions = () => {
     // const [recipientEmail, setRecipientEmail] = useState<string>("");
     // const [recipientName, setRecipientName] = useState<string>("");
     // const [groupChatSelected, setGr]
+    // const userSession: User = user;
+
+    
+
+    useEffect(()=>{
+        if(email && socketId){
+            // conncectedUsers.set(email, socketId);
+            socket.emit("register_user", 
+                {
+                    "user_email": email,
+                    "socket_id": socketId
+                }
+            );
+        }
+    }, [email, socketId])
+
+
+    useEffect(()=>{
+        socket.on("new_conn", (data)=>{
+            console.log("new connection", data);
+        })
+
+        socket.on("updated_database", (data)=>{
+            console.log("update: ", data);
+        })
+    }, [socket])
+
+    useEffect(()=>{
+        if(selectedUser?.email){
+            socket.emit("user_convo_clicked", (selectedUser.email));
+        } else{
+            socket.emit('user_convo_Clicked', (null))
+        }
+    }, [selectedUser])
 
     const handleChatTypeClick = (val: string) => {
         setChateSelected(val);
@@ -61,9 +114,9 @@ const ChatOptions = () => {
             {/* <div onClick ={() => handleChatTypeClick('online')}>Online</div> */}
             </div>
             { 
-                selectedUser?.image && selectedUser?.name ?
+                selectedUser?.image && selectedUser?.name && selectedUser?.email ?
                 <div className="chat-container">
-                    <IndividualChat />
+                    <IndividualChat recipient={selectedUser?.email} owner={email}/>
                 </div>
                 :
                 <ChatList userSelected={handleSelectedUser} />

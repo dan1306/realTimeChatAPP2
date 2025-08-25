@@ -14,7 +14,7 @@ const NavBar = async () => {
 
     const session = await getAuthSession()
 
-    console.log(session)
+    console.log("session: ", session)
 
 
     // const [dropUserOption, SetdropUserOption] = useState<boolean>(false)

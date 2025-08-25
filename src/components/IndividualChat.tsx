@@ -1,20 +1,20 @@
 "use client"
 
 
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import "../styles/IndividualChat.css"
-import { socket } from "../socket";
+import {socket} from "../components/ChatOptions"
 // import { Send } from 'lucide-react';
 import { BsSendFill } from 'react-icons/bs';
 import { MdPhoto } from "react-icons/md";
 
-let UserId: string | undefined
+// let UserId: string | undefined
 
 
-socket.on('connect', () => {
-    UserId = socket.id
-    console.log("UserId: ", UserId)
-})
+// socket.on('connect', () => {
+    // UserId = socket.id
+    // console.log("UserId: ", UserId)
+// })
 
 interface MyMessage {
   messge: String;
@@ -23,15 +23,27 @@ interface MyMessage {
 }
 
 
+interface interaction {
+    recipient: string,
+    owner: string
+}
 
-const IndividualChat = () => {
+
+const IndividualChat : FC<interaction> = ({recipient, owner}) => {
     const [message, setMessage] = useState<string>('')
     const [messageEmpty, setMessageEmpty] = useState<boolean>(false)
     const [myMessage, setMessages] = useState<MyMessage[]>([]); 
     const [mesageId, setMessageId] = useState<number>(0)
+    
+    
     const sendMessage = () => {
         const tempMessage: string = message.trim()
-        if (tempMessage.length !== 0) socket.emit("send_message", { message });
+        let data = {
+            sender: owner,
+            recipient,
+            message
+        }
+        if (tempMessage.length !== 0) socket.emit("send_message", ({message, recipient}));
         setMessageEmpty(true)
         setMessageId(prevId => prevId + 1);
         const newMessage: MyMessage = {
@@ -53,12 +65,14 @@ const IndividualChat = () => {
         // console.log("h1")
         setMessageId(prevId => prevId + 1);
 
-        socket.on("recieve_message", (data: {message: string}) => {
-        const newMessage: MyMessage = {
+        socket.on("recieve_message", (data) => {
+        
+            console.log("dadas", data)
+            const newMessage: MyMessage = {
             id: mesageId,
             fromMe: false,
 
-            messge: data.message
+            messge: data
         };
 
         // Use the spread operator to create a new array with the existing messages and the new one
