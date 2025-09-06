@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "nodemon server.js",
-    "build": "prisma generate && next build",
+    "build": "concurrently \"prisma generate\" \"next build\"",
     "start": "node server.js",
+    "vercel-build": "prisma generate && next build",
     "lint": "next lint"
   },
   "dependencies": {
