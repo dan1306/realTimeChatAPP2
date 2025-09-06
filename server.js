@@ -33,7 +33,7 @@ app.prepare().then(() => {
       // io.emit('recieve_message', data)
       }
     });
-
+// clean up time
     socket.on("register_user", (data)=>{
       connectedUsers[data["socket_id"]] = data["user_email"];
       connectedUsers2[data["user_email"]] = data["socket_id"];
@@ -112,3 +112,7 @@ app.prepare().then(() => {
       console.log(`> Ready on http://${hostname}:${port}`);
     });
 });
+
+
+
+// "dev": "nodemon server.js",
