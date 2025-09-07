@@ -52,7 +52,7 @@ const UserNav: FC<UserAccountNavProps> = ({ user }) => {
                         <div onClick={(e) => {
                             e.preventDefault()
                             signOut({
-                                callbackUrl: `${window.location.origin}/sign-in`
+                                callbackUrl: `${window.location.origin}/r/chats`
                             })
 
                         }}>Log Out</div>

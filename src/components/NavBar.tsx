@@ -27,7 +27,9 @@ const NavBar = async () => {
         <div className="navbar-styling">
             <div className="nav-content">
                 <div className="navbar-icon">
-                    <MessagesSquare className="messages-square-icon" />
+                    <Link href="/r/chats">
+                        <MessagesSquare className="messages-square-icon" />
+                    </Link>
                     {/* <p className="nav-titile">
                         ChatMeUp
                     </p> */}
