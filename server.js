@@ -21,7 +21,7 @@ app.prepare().then(() => {
   const io = new Server(httpServer, {
     cors: {
       origin: process.env.NODE_ENV === "production"
-        ? [process.env.FRONTEND_URL, "https://your-vercel-app.vercel.app"]
+        ? [process.env.FRONTEND_URL, "https://real-time-chat-app-2-9rik.vercel.app"]
         : "http://localhost:3000",
       methods: ["GET", "POST"],
       credentials: true
